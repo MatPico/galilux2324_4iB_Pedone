@@ -1,0 +1,128 @@
+# Progetto scacchi - pedone
+
+Gruppo 4  
+[01] Aftouhi Oualid  
+[08] Fabiano Giuseppe  
+[12] Halim Ayoub Meshrky Daniel  
+[18] Picoco Mattia			4	discord admin
+
+## Contiene Progetto Pawn
+
+-Parte di sviluppo del codice:   
+Picoco Mattia    
+Halim Daniel   
+-Sviluppo delle relazioni e delle appendici:    
+Fabiano Giuseppe  
+-Ragionamento sulle funzioni delle pedine:  
+Aftohui Welid
+
+-Il nostro progetto contiene contemporaneamente già Pawn che King, tenendoli in classi separate.   
+il codice si basa su un array BiDimensionale che uso come scacchiera e che stampo continuamente.  
+Utilizzo le lettere come segnaposto nella scacchiera e le classiche annotazioni (e5,b7,ecc..) per il movimento.
+
+### -Errori conosciuti:  
+1 mancanza di GUI
+
+### -Traguardi raggiunti:  
+1 scrivere il codice  
+2 ideare un metodo di movimento e spazio per la scacchiera  
+3 attuare il movimento in progetto  
+4 permettere i movimenti completi delle pedine  
+5 turni in gioco   
+6 tutorial  
+7 registro delle mosse
+
+## -Tutorial Scacchi:  
+Giocare a scacchi può essere all'inizio complesso e timoroso
+In realtà per giocare basta conoscere i movimenti basi delle pedine:  
+- Regina  
+- Cavallo  
+- Torre  
+- Alfiere  
+- Re  
+- Pedone
+
+Le pedine sono disposte sempre allo stesso modo  
+Sono disposte all'interno della scacchiera  
+La scacchiera è composta da un quadrato di 8x8 caselle  
+Le caselle sono alternate bianche e nere  
+Le caselle hanno coordinate che variano da:  
+- a - h per le colonne  
+- 1 - 8 per le righe
+
+Inizia sempre il bianco, i giocatori si alternano nelle mosse  
+Lo scopo del gioco è mettere sotto scacco matto il re  
+
+## -Tutorial Pedone:  
+Il pedone e' la pedina che vale meno sulla scacchiera (1)  
+Ne sono presenti però 8 per squadra, nella riga 2 e 7  
+I pedoni possono muoversi solo di 1 in avanti MAI IN DIETRO  
+I pedoni possono compiere doppio passo  
+Durante il loro primo passo possono saltare infatti di 2  
+I pedoni possono mangiare solo in diagonale di una casella  
+I pedoni non possono saltare pedine (neanche doppio passo)  
+Se un pedone arriva alla fine della scacchiera si evolve  
+Può diventare infatti:  
+- Regina  
+- Cavallo  
+- Torre  
+- Alfiere
+
+## -Spiegazione codice:  
+### -Scacchi:  
+La classe scacchi.java è il main del progetto  
+Utilizza le classi Pawn.java e Scacchiera.java  
+Le principali fasi del codice sono:  
+
+1 inizializza tutti gli oggetti utilizzando le classi presenti e predisposte  
+2 inizializza la scacchiera  
+3 entra nel primo while e chiede quale funzione si voglia utilizzare:  (switch)  
+- Tutorial = mostra il tutorial completo del gioco:
+- Tutorial Pedone = mostra il tutorial specifico per il pedone:
+- Tutorial Re = mostra il tutorial specifico per il re:
+- Gioca = entra nella schermata di gioco effettiva:
+- Esci = chiude il codice
+ 
+4 se l'utente entra nella funzione gioca entra in un secondo while che conterrà la scacchiera;    
+  ad ogni ciclo del while infatti verra stampato lo stato attuale della scacchiera.  
+  Verrà poi chiesta quale casella si vuole scegliere (inserimento delle coordinate) e quindi quale pedina selezionare,  
+  scelta la casella verrà controllato se il dato è valido e che pedina corrisponde a quella casella.  
+  Trovata la pedina corrispondente si controlla con una variabile bool e con il peso della pedina se è il turno corretto.    
+  (il bool alternerà true e false nei turni, durante i cicli true potrà solo muovere il bianco con le lettere maiuscole,  
+  il nero viceversa)  
+  Se il codice non da errore allora si mandano i dati alla classe del Pedone che tratterà il movimento.
+
+![Scacchi](https://github.com/MatPico/galilux2324_4iB_Pedone/assets/160752254/8a6ceda4-f869-486f-aa96-695d7e8d751b)
+
+### -Scacchiera:  
+La classe Scacchiera.java si occupa di tutto quello che riguarda la scacchiera e le verifiche  
+Contiene un array BiDimensionale che viene riempito con dei for  
+La nomenclatura della nostra scacchiera usa "-" per le caselle vuote, le maiuscolo per il bianco e minuscole per il nero.  
+Contiene principalmente metodi richiamabili da altre classi:  
+- mostra la scacchiera
+- controlla le coordinate
+- muove la pedina (nel senso di sostituire i valori nell'array)
+- trasmette (ricevute le coordinate) la pedina alla classe che la chiede
+ 
+Scacchiera.java è un grande registro.
+
+![Scacchiera](https://github.com/MatPico/galilux2324_4iB_Pedone/assets/160752254/291b1b52-2aa6-4272-8419-5450156db7db)
+
+### -Pedone:  
+La classe Pawn.java si occupa delle regole del pedone  
+Il pedone infatti:  
+- si muove sempre nella stessa colonna
+- si muove sempre in avanti
+- si muove sempre di 1 casella
+- si può muovere solo la prima volta di 2 caselle
+
+Se le cordinate inviate rispettano i parametri allora avverrà il movimento (la sostituzione/sovrascrizione).
+
+![Pawn](https://github.com/MatPico/galilux2324_4iB_Pedone/assets/160752254/6027acac-e73f-4a96-b9fe-d85d0c27c431)
+
+
+
+
+
+
+
